@@ -34,6 +34,8 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
 end
 
 group :development do
