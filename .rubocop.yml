@@ -1,0 +1,13 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+
+inherit_from:
+  - '.rubocop_todo.yml'
