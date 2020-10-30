@@ -2,12 +2,9 @@ class ProductsController < ApplicationController
 
   def index
     @categories = Product.pluck(:category).uniq
-
-    if params.has_key?("category")
-      @products = Product.where(category: params[:category])
-    else
-      @products = Product.all
-    end
+    @styles = Product.pluck(:style).uniq
+    @colours = Product.pluck(:colour).uniq
+    @products = Product.by_category_style_and_colour(params[:category], params[:style], params[:colour])
   end
 
   def show

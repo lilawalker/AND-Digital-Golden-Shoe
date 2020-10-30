@@ -7,6 +7,16 @@
   <%= options_for_select(@categories, selected: params[:category]) %>
 </select>
 
+<select class="filter" name="style">
+  <option disabled selected value> -- select style -- </option>
+  <%= options_for_select(@styles, selected: params[:style]) %>
+</select>
+
+<select class="filter" name="colour">
+  <option disabled selected value> -- select colour -- </option>
+  <%= options_for_select(@colours, selected: params[:colour]) %>
+</select>
+
 <table>
   <thead>
     <tr>
