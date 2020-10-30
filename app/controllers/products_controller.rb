@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @variations = Product.where(name: @product.name)
     @sizes = @product.units.pluck(:size)
+    @selected_size = params[:size] ? @product.units.find_by_size(params[:size]) : @product.units.first
   end
 
 end

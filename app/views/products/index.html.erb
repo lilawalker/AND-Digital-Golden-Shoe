@@ -3,17 +3,17 @@
 <h1>Products</h1>
 
 <select class="filter" name="category">
-  <option disabled selected value> -- select category -- </option>
+  <option selected value> -- select category -- </option>
   <%= options_for_select(@categories, selected: params[:category]) %>
 </select>
 
 <select class="filter" name="style">
-  <option disabled selected value> -- select style -- </option>
+  <option selected value> -- select style -- </option>
   <%= options_for_select(@styles, selected: params[:style]) %>
 </select>
 
 <select class="filter" name="colour">
-  <option disabled selected value> -- select colour -- </option>
+  <option selected value> -- select colour -- </option>
   <%= options_for_select(@colours, selected: params[:colour]) %>
 </select>
 

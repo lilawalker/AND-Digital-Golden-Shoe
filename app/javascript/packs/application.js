@@ -4,7 +4,6 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -22,7 +21,11 @@ window.onload = () => {
   filters.forEach((element) => {
     element.addEventListener("change", (event) => {
       const urlParams = new URLSearchParams(window.location.search)
-      urlParams.set(event.target.name, event.target.value)
+      if (event.target.value !== "") {
+        urlParams.set(event.target.name, event.target.value)
+      } else {
+        urlParams.delete(event.target.name)
+      }
       window.location.search = urlParams.toString()
     })
   });

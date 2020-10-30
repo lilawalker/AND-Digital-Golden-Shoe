@@ -38,7 +38,14 @@
 
 <select class="filter" name="size">
   <option disabled selected value> -- select size -- </option>
-  <%= options_for_select(@sizes, selected: params[:size]) %>
+  <%= options_for_select(@sizes, selected: @selected_size.size) %>
 </select>
+
+<% if @selected_size.quantity == 0 %>
+  <%= "Out of Stock" %>
+<% else %>
+  <%= "In stock" %>
+<% end %>
+
 
 <%= link_to 'Back', products_path %>
