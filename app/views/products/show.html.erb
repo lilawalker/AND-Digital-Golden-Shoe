@@ -36,4 +36,9 @@
   <%= link_to variant.colour, product_path(variant), style: "color: #{variant.colour}" %>
 <% end %>
 
+<select class="filter" name="size">
+  <option disabled selected value> -- select size -- </option>
+  <%= options_for_select(@sizes, selected: params[:size]) %>
+</select>
+
 <%= link_to 'Back', products_path %>

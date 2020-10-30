@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @variations = Product.where(name: @product.name)
+    @sizes = @product.units.pluck(:size)
   end
 
 end
