@@ -32,4 +32,8 @@
 
 <%= image_tag(@product.image, size: "400") %>
 
+<% @variations.each do |variant| %>
+  <%= link_to variant.colour, product_path(variant), style: "color: #{variant.colour}" %>
+<% end %>
+
 <%= link_to 'Back', products_path %>
