@@ -15,3 +15,15 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+window.onload = () => {
+  const filters = document.querySelectorAll(".filter")
+
+  filters.forEach((element) => {
+    element.addEventListener("change", (event) => {
+      const urlParams = new URLSearchParams(window.location.search)
+      urlParams.set(event.target.name, event.target.value)
+      window.location.search = urlParams.toString()
+    })
+  });
+}
