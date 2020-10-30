@@ -20,4 +20,16 @@
   <%= @product.description %>
 </p>
 
+<p>
+  <strong>Colour</strong>
+  <%= @product.colour %>
+</p>
+
+<p>
+  <strong>Price</strong>
+  <%= @product.price %>
+</p>
+
+<%= image_tag(@product.image, size: "400") %>
+
 <%= link_to 'Back', products_path %>

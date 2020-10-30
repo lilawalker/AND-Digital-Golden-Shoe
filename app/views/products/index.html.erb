@@ -9,6 +9,9 @@
       <th>Style</th>
       <th>Name</th>
       <th>Description</th>
+      <th>Colour</th>
+      <th>Price</th>
+      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +23,9 @@
         <td><%= product.style %></td>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
+        <td><%= product.colour %></td>
+        <td><%= product.price %></td>
+        <td><%= image_tag(product.image, size: "48") %></td>
         <td><%= link_to 'Show', product %></td>
       </tr>
     <% end %>
