@@ -7,16 +7,28 @@ products = [
   ["womens", "old school"],
 ]
 
-units = []
-
-3.times do |x|
-  units << ["images/image.jpg", "white", 6 + x]
-  units << ["images/image.jpg", "black", 6 + x]
-  units << ["images/image.jpg", "gold", 6 + x]
-end
+units = {
+  "classic" => [
+    ["/images/classic_black.jpg", "black"],
+    ["/images/classic_gold.jpg", "gold"],
+    ["/images/classic_white.jpg", "white"],
+  ],
+  "high top" => [
+    ["/images/hightop_black.jpg", "black"],
+    ["/images/hightop_gold.jpg", "gold"],
+    ["/images/hightop_white.jpg", "white"],
+  ],
+  "old school" => [
+    ["/images/oldschool_black.jpg", "black"],
+    ["/images/oldschool_gold.jpg", "gold"],
+    ["/images/oldschool_white.jpg", "white"],
+  ]
+}
 
 products.each do |category, style|
-  3.times do |x|
+  variations = units[style]
+
+  3.times do
     product = Product.create(
       category: category,
       style: style,
@@ -24,16 +36,18 @@ products.each do |category, style|
       description: Faker::Lorem.paragraph(sentence_count: 4)
     )
 
-    units.each do |image, colour, size|
-      Unit.create(
-        image: image,
-        colour: colour,
-        price: Faker::Commerce.price(range: 60..129),
-        size: size,
-        quantity: rand(0..3),
-        product: product,
-      )
+    variations.each do |image, colour|
+      3.times do |n|
+        Unit.create(
+          image: image,
+          colour: colour,
+          price: Faker::Commerce.price(range: 60..129),
+          size: 6 + n,
+          quantity: rand(0..3),
+          product: product,
+          serial_number: SecureRandom.uuid,
+        )
+      end
     end
   end
 end
-
