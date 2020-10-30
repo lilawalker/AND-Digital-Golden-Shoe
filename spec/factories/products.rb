@@ -1,8 +1,11 @@
 FactoryBot.define do
   factory :product do
-    sequence(:category) { |n| "Womens#{n}" }
-    sequence(:style) { |n| "Boots#{n}" }
-    sequence(:name) { |n| "High fashion boots#{n}" }
-    sequence(:description) { |n| "Leather boots with laces#{n}" }
+    category { "Womens" }
+    style { "Classic" }
+    name { "Classic trainers" }
+    description { "Classic trainers with style" }
+    image { "image.jpeg" }
+    colour { "Black" }
+    price { 79.00 }
   end
 end

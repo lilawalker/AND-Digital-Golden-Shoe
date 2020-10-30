@@ -4,18 +4,8 @@ RSpec.describe Unit, type: :model do
 
   subject(:unit) { FactoryBot.create(:unit) }
 
-  it 'is not valid without a image' do
-    unit.image = nil
-    expect(unit).to_not be_valid
-  end
-
-  it 'is not valid without a colour' do
-    unit.colour = nil
-    expect(unit).to_not be_valid
-  end
-
-  it 'is not valid without a price' do
-    unit.price = nil
+  it 'is not valid without a serial number' do
+    unit.serial_number = nil
     expect(unit).to_not be_valid
   end
 
