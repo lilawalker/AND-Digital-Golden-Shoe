@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
 
-  root to: "home#index"
+  post '/baskets/add', to: 'basket_items#create', as: 'add_to_basket'
+
+  root to: 'home#index'
 end
