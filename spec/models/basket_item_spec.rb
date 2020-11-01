@@ -19,4 +19,8 @@ RSpec.describe BasketItem, type: :model do
     expect(basket_item).to_not be_valid
   end
 
+  it "#subtotal_price" do
+    expect(basket_item.subtotal_price).to eq 79
+  end
+
 end

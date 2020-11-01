@@ -21,4 +21,13 @@ RSpec.feature 'Basket', type: :feature do
     expect(page).to have_content "2"
   end
 
+  scenario "displays the basket subtotal" do
+    visit "/products/#{unit.product.id}?size=6"
+    click_button "Add to basket"
+    visit "/products/#{unit.product.id}?size=6"
+    click_button "Add to basket"
+    click_link "See Basket"
+    expect(page).to have_content "Subtotal: 158"
+  end
+
 end
