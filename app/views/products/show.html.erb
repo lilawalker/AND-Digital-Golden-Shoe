@@ -47,6 +47,6 @@
   <%= "In stock" %>
 <% end %>
 
-<%= button_to 'Add to basket', add_to_basket_path(unit_id: @selected_size) %>
+<%= button_to 'Add to basket', add_to_basket_path(unit_id: @selected_size), disabled: @selected_size.quantity == 0 %>
 
 <%= link_to 'Back', products_path %>

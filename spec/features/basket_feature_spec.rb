@@ -35,4 +35,16 @@ RSpec.feature 'Basket', type: :feature do
     expect(page).to have_content "Removed from basket"
   end
 
+  scenario "disables the 'add to basket' button if the item is out of stock" do
+    current_unit = Unit.create(
+      serial_number: "MC12HN",
+      size: 6,
+      quantity: 0,
+      product: FactoryBot.create(:product),
+    )
+
+    visit "/products/#{current_unit.product.id}?size=6"
+    expect(page).not_to have_button("Add to basket")
+  end
+
 end
