@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe BasketItemsController, type: :controller do
 
   let (:unit) { FactoryBot.create(:unit) }
+  let (:basket_item) { FactoryBot.create(:basket_item) }
 
   describe 'POST /' do
 
@@ -20,6 +21,13 @@ RSpec.describe BasketItemsController, type: :controller do
         post :create, params: { unit_id: unit.id }
         expect(response).to redirect_to(product_path(unit.product))
       end
+    end
+  end
+
+  describe 'DELETE /destroy' do
+    it 'responds with 200' do
+      delete :destroy, params: { id: basket_item.id }
+      expect(response).to redirect_to(basket_path)
     end
   end
 end

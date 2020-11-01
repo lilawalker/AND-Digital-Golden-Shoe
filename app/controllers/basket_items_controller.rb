@@ -20,6 +20,14 @@ class BasketItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @basket_item.destroy
+    respond_to do |format|
+      format.html { redirect_to basket_path, notice: 'Removed from basket.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
     def set_basket_item
