@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
     @variations = Product.where(name: @product.name)
     @sizes = @product.units.pluck(:size)
     @selected_size = params[:size] ? @product.units.find_by_size(params[:size]) : @product.units.first
-    @unit = @product.units.find_by_size(params[:size])
   end
 
 end

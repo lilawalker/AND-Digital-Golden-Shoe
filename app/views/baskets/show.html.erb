@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Basket</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Category</th>
+      <th>Style</th>
+      <th>Name</th>
+      <th>Colour</th>
+      <th>Size</th>
+      <th>Price</th>
+      <th>Quantity</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @basket.basket_items.each do |basket_item| %>
+      <tr>
+        <td><%= image_tag(basket_item.unit.product.image, size: "48") %></td>
+        <td><%= basket_item.unit.product.category %></td>
+        <td><%= basket_item.unit.product.style %></td>
+        <td><%= basket_item.unit.product.name %></td>
+        <td><%= basket_item.unit.product.colour %></td>
+        <td><%= basket_item.unit.size %></td>
+        <td><%= basket_item.unit.product.price %></td>
+        <td><%= basket_item.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @basket.subtotal %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @basket.discount %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @basket.total %>
+</p>
+
+<%= link_to 'Continue Shopping', products_path %>

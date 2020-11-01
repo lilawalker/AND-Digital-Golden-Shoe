@@ -1,3 +1,5 @@
+<%= link_to 'See Basket', basket_path %>
+
 <p>
   <strong>Category:</strong>
   <%= @product.category %>
@@ -45,6 +47,6 @@
   <%= "In stock" %>
 <% end %>
 
-<%= button_to 'Add to basket', add_to_basket_path(unit_id: @unit) %>
+<%= button_to 'Add to basket', add_to_basket_path(unit_id: @selected_size) %>
 
 <%= link_to 'Back', products_path %>
