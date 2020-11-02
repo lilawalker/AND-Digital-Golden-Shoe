@@ -1,28 +1,22 @@
-<br>
-
-<div class="flex-row">
-  <select class="filter text-gray-700 rounded-full border-2 border-gray-400 ml-8" name="category">
-    <option selected value> select category </option>
+<div class="flex md:flex-none md:flex-row justify-between md:justify-start mt-8">
+  <select class="filter w-4/12 md:w-auto text-gray-700 rounded-full border-2 border-gray-400 md:mr-8" name="category">
+    <option selected value>category</option>
     <%= options_for_select(@categories, selected: params[:category]) %>
   </select>
 
-  <select class="filter text-gray-700 rounded-full border-2 border-gray-400 ml-6" name="style">
-    <option selected value> select style </option>
+  <select class="filter w-3/12 md:w-auto text-gray-700 rounded-full border-2 border-gray-400 md:mr-8" name="style">
+    <option selected value>style</option>
     <%= options_for_select(@styles, selected: params[:style]) %>
   </select>
 
-  <select class="filter text-gray-700 rounded-full border-2 border-gray-400 ml-6" name="colour">
-    <option selected value> select colour </option>
+  <select class="filter w-3/12 md:w-auto text-gray-700 rounded-full border-2 border-gray-400 md:mr-8" name="colour">
+    <option selected value>colour</option>
     <%= options_for_select(@colours, selected: params[:colour]) %>
   </select>
 </div>
 
-<section class="section grid gap-6 grid-cols-2 lg:grid-cols-4 p-8">
+<section class="grid gap-6 grid-cols-2 lg:grid-cols-4">
   <% @products.each do |product| %>
-    <div class="xl:container xl:mx-auto">
       <%= render(product) %>
-    </div>
   <% end %>
 </section>
-
-<br>
