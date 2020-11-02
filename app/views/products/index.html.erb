@@ -1,29 +1,24 @@
 <br>
 
-<select class="filter" name="category">
-  <option selected value> -- select category -- </option>
+<select class="filter bg-white rounded shadow m-1" name="category">
+  <option selected value> select category </option>
   <%= options_for_select(@categories, selected: params[:category]) %>
 </select>
 
-<select class="filter" name="style">
-  <option selected value> -- select style -- </option>
+<select class="filter bg-white rounded shadow m-1" name="style">
+  <option selected value> select style </option>
   <%= options_for_select(@styles, selected: params[:style]) %>
 </select>
 
-<select class="filter" name="colour">
-  <option selected value> -- select colour -- </option>
+<select class="filter bg-white rounded shadow m-1" name="colour">
+  <option selected value> select colour </option>
   <%= options_for_select(@colours, selected: params[:colour]) %>
 </select>
 
-<ul>
+<section class="section">
   <% @products.each do |product| %>
-    <li>
-      <%= image_tag(product.image, size: "48") %>
-      <%= link_to product.name, product %><br>
-      <%= "#{product.category} #{product.style} #{product.colour}" %><br>
-      <%= number_to_currency(product.price) %><br>
-    </li>
+    <%= render(product) %>
   <% end %>
-</ul>
+</section>
 
 <br>

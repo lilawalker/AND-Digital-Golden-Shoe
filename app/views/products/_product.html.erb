@@ -1,0 +1,6 @@
+      <%= link_to product do %>
+        <%= image_tag(product.image, size: "200") %>
+      <% end %>
+      <p class="text-lg"><%= link_to product.name, product %></p>
+      <p class="text-xs"><%= "#{product.category.capitalize} #{product.style} #{product.colour}" %></p>
+      <p class="text-sm"><%= number_to_currency(product.price) %></p>
