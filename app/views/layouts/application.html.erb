@@ -10,7 +10,16 @@
   </head>
 
   <body>
-    <%= link_to 'See Basket', basket_path %>
+
+  <div class="sticky top-0 bg-teal-500 w-full pb-1 lg:pb-0">
+    <nav class="lg:flex justify-between text-yellow-500">
+      <h1 class="text-4xl lg:my-1 lg:pl-10 text-center">
+        <%= link_to 'Golden Shoe', root_path, class: "hover:text-yellow-600 active:text-yellow-600 font-extrabold" %>
+      </h1>
+    <%= link_to 'See Basket', basket_path, class: "hover:text-yellow-600 active:text-yellow-600" %>
+    </nav>
+  </div>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
