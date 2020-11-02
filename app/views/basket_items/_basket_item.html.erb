@@ -1,23 +1,27 @@
-<div class="mr-6">
-  <%= link_to product_path(id: basket_item.unit.product.id) do %>
-    <%= image_tag(basket_item.unit.product.image) %><br>
-  <% end %>
-</div>
-
-<div>
-  <div class="mb-8">
-    <p class="text-xl text-gray-700"><%= basket_item.unit.product.name %></p>
-    <p class="text-base text-gray-700"><%= number_to_currency(basket_item.unit.product.price) %></p>
+<div class="flex flex-row rounded-md mb-8 shadow-xl px-4 justify-around xl:w-3/4">
+  <div class="mr-6">
+    <%= link_to product_path(id: basket_item.unit.product.id) do %>
+      <%= image_tag(basket_item.unit.product.image, class: "object-contain") %><br>
+    <% end %>
   </div>
 
-  <div class="text-sm text-gray-700 text-opacity-75 mb-8">
-    <p><strong>Serial Number: </strong><%= basket_item.unit.serial_number.upcase %></p>
-    <p><strong>Colour: </strong><%= basket_item.unit.product.colour %></p>
-    <p><strong>Size: </strong><%= basket_item.unit.size %></p>
-    <p><strong>Quantity: </strong><%= basket_item.quantity %></p>
-  </div>
+  <div class="mt-4 mb-12">
+    <div class="mb-8">
+      <p class="text-xl text-gray-700"><%= basket_item.unit.product.name %></p>
+      <p class="text-base text-gray-700"><%= number_to_currency(basket_item.unit.product.price) %></p>
+    </div>
 
-  <p class="bg-teal-400 hover:bg-teal-600 text-yellow-500 font-bold py-2 px-4 rounded">
-    <%= link_to 'Remove Item', remove_from_basket_path(id: basket_item.id), method: :delete, data: { confirm: "Are you sure? " } %>
-  </p>
+    <div class="text-sm text-gray-700 text-opacity-75 mb-8">
+      <p><strong>Serial Number: </strong><%= basket_item.unit.serial_number.upcase %></p>
+      <p><strong>Colour: </strong><%= basket_item.unit.product.colour %></p>
+      <p><strong>Size: </strong><%= basket_item.unit.size %></p>
+      <p><strong>Quantity: </strong><%= basket_item.quantity %></p>
+    </div>
+
+    <p >
+      <%= link_to remove_from_basket_path(id: basket_item.id), method: :delete, data: { confirm: "Are you sure? " } do %>
+        <button class="bg-teal-400 hover:bg-teal-600 text-yellow-500 font-bold py-2 px-4 rounded">Remove Item</button>
+      <% end %>
+    </p>
+  </div>
 </div>

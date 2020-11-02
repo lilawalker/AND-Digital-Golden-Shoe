@@ -1,12 +1,10 @@
-<section class="section p-8">
+<section class="section pt-8">
   <% @basket.basket_items.each do |basket_item| %>
-    <div class="xl:container xl:mx-auto flex flex-row rounded-md mb-8 shadow-xl">
-      <%= render(basket_item) %>
-    </div>
+    <%= render(basket_item) %>
   <% end %>
 </section>
 
-<div class="text-gray-700 m-8">
+<div class="text-gray-700 mt-8">
   <p>
     <strong>Subtotal:</strong>
     <%= number_to_currency(@basket.subtotal) %>
@@ -23,6 +21,6 @@
   </p>
 <div>
 
-<div class="m-8 text-lg text-gray-400 underline hover:text-gray-700">
+<div class="my-4 text-lg text-gray-400 underline hover:text-gray-700">
   <%= link_to 'Continue Shopping', products_path %>
 </div>
