@@ -10,18 +10,23 @@
   </head>
 
   <body>
+    <div class="sticky top-0 bg-teal-500 w-full pb-1 lg:pb-0">
+      <nav class="flex justify-between text-yellow-500 align-middle">
+        <h1 class="text-4xl lg:my-1 pl-4 lg:pl-10">
+          <%= link_to 'Golden Shoe', root_path, class: "hover:text-yellow-600 active:text-yellow-600 font-extrabold" %>
+        </h1>
+        <%= link_to 'shopping_cart', basket_path, class: "material-icons hover:text-yellow-600 active:text-yellow-600 mt-4 mr-4" %>
+      </nav>
+    </div>
 
-  <div class="sticky top-0 bg-teal-500 w-full pb-1 lg:pb-0">
-    <nav class="lg:flex justify-between text-yellow-500">
-      <h1 class="text-4xl lg:my-1 lg:pl-10 text-center">
-        <%= link_to 'Golden Shoe', root_path, class: "hover:text-yellow-600 active:text-yellow-600 font-extrabold" %>
-      </h1>
-    <%= link_to 'See Basket', basket_path, class: "hover:text-yellow-600 active:text-yellow-600" %>
-    </nav>
-  </div>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="mx-auto px-4 md:px-8 w-full sm:w-10/12">
+      <% if notice %>
+        <p class="bg-green-200 border-green-700 text-green-700 rounded-md mt-4 p-4 text-lg"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="bg-red-200 border-red-700 text-red-700 rounded-md mt-4 p-4 text-lg"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
