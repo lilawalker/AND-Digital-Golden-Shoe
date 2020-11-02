@@ -1,28 +1,55 @@
-<%= image_tag(@product.image, size: "400") %>
+<%= image_tag(@product.image, class: "object-contain m-8") %>
 
-<% @variations.each do |variant| %>
-  <%= link_to variant.colour, product_path(variant), style: "color: #{variant.colour}" %>
-<% end %>
+<div class="flex flex-row m-8">
+  <% @variations.each do |variant| %>
+    <div class="rounded-full h-8 w-8 flex items-center justify-center border border-black mr-6">
+      <%= link_to variant.colour, product_path(variant), style: "color: #{variant.colour}" %>
+    </div>
+  <% end %>
+</div>
 
-<br>
+<div class="m-8">
+  <p class="text-xl text-gray-700">
+    <%= @product.name %>
+  </p>
+  <p class="text-sm text-gray-700 text-opacity-50">
+    <%= "#{@product.category.capitalize} #{@product.style} #{@product.colour}" %>
+  </p>
+  <p class="text-base text-gray-700 mb-8">
+    <%= number_to_currency(@product.price) %>
+  </p>
+</div>
 
-<%= @product.name %><br>
-<%= "#{@product.category} #{@product.style} #{@product.colour}" %><br>
-<%= number_to_currency(@product.price) %><br>
+<div class="text-gray-700" >
+  <select class="filter rounded-full border-2 border-gray-400 ml-8" name="size">
+    <option disabled selected value> select size </option>
+    <%= options_for_select(@sizes, selected: @selected_size.size) %>
+  </select>
 
-<select class="filter" name="size">
-  <option disabled selected value> -- select size -- </option>
-  <%= options_for_select(@sizes, selected: @selected_size.size) %>
-</select>
+  <% if @selected_size.quantity == 0 %>
+    <%= "Out of Stock" %>
+  <% else %>
+    <%= "In stock" %>
+  <% end %>
+</div>
 
-<% if @selected_size.quantity == 0 %>
-  <%= "Out of Stock" %>
-<% else %>
-  <%= "In stock" %>
-<% end %>
+<div class="m-8">
+  <% if @selected_size.quantity == 0 %>
+    <%= button_to 'Add to basket', add_to_basket_path(unit_id: @selected_size),
+      class: "bg-teal-400 hover:bg-teal-600 text-yellow-500 font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed"
+    %>
+  <% else %>
+    <%= button_to 'Add to basket', add_to_basket_path(unit_id: @selected_size),
+      class: "bg-teal-400 hover:bg-teal-600 text-yellow-500 font-bold py-2 px-4 rounded"
+    %>
+  <% end %>
+</div>
 
-<%= button_to 'Add to basket', add_to_basket_path(unit_id: @selected_size), disabled: @selected_size.quantity == 0 %>
+<div class="m-8">
+  <p class="text-xl text-gray-700"><%= "Product Information:" %></p>
+  <p class="text-lg text-gray-700 text-opacity-75"><%= @product.description %></p>
+</div>
 
-<%= @product.description %><br>
-
-<%= link_to 'Back', products_path %>
+<div class="m-8 text-lg text-gray-400 underline hover:text-gray-700">
+  <%= link_to 'Back', products_path %>
+</div>
