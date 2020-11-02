@@ -1,40 +1,14 @@
-<%= link_to 'See Basket', basket_path %>
-
-<p>
-  <strong>Category:</strong>
-  <%= @product.category %>
-</p>
-
-<p>
-  <strong>Style:</strong>
-  <%= @product.style %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Colour</strong>
-  <%= @product.colour %>
-</p>
-
-<p>
-  <strong>Price</strong>
-  <%= @product.price %>
-</p>
-
 <%= image_tag(@product.image, size: "400") %>
 
 <% @variations.each do |variant| %>
   <%= link_to variant.colour, product_path(variant), style: "color: #{variant.colour}" %>
 <% end %>
+
+<br>
+
+<%= @product.name %><br>
+<%= "#{@product.category} #{@product.style} #{@product.colour}" %><br>
+<%= number_to_currency(@product.price) %><br>
 
 <select class="filter" name="size">
   <option disabled selected value> -- select size -- </option>
@@ -48,5 +22,7 @@
 <% end %>
 
 <%= button_to 'Add to basket', add_to_basket_path(unit_id: @selected_size), disabled: @selected_size.quantity == 0 %>
+
+<%= @product.description %><br>
 
 <%= link_to 'Back', products_path %>

@@ -1,43 +1,23 @@
-<h1>Basket</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Category</th>
-      <th>Style</th>
-      <th>Name</th>
-      <th>Colour</th>
-      <th>Size</th>
-      <th>Price</th>
-      <th>Quantity</th>
-
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @basket.basket_items.each do |basket_item| %>
-      <tr>
-        <td><%= image_tag(basket_item.unit.product.image, size: "48") %></td>
-        <td><%= basket_item.unit.product.category %></td>
-        <td><%= basket_item.unit.product.style %></td>
-        <td><%= basket_item.unit.product.name %></td>
-        <td><%= basket_item.unit.product.colour %></td>
-        <td><%= basket_item.unit.size %></td>
-        <td><%= basket_item.unit.product.price %></td>
-        <td><%= basket_item.quantity %></td>
-        <td><%= link_to 'Remove Item', remove_from_basket_path(id: basket_item.id), method: :delete, data: { confirm: "Are you sure? " } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul>
+  <% @basket.basket_items.each do |basket_item| %>
+    <li>
+      <%= image_tag(basket_item.unit.product.image, size: "48") %><br>
+      <%= basket_item.unit.product.name %><br>
+      <%= number_to_currency(basket_item.unit.product.price) %><br>
+      <strong>Serial Number: </strong><%= basket_item.unit.serial_number.upcase %><br>
+      <strong>Colour: </strong><%= basket_item.unit.product.colour %><br>
+      <strong>Size: </strong><%= basket_item.unit.size %><br>
+      <strong>Quantity: </strong><%= basket_item.quantity %><br>
+      <%= link_to 'Remove Item', remove_from_basket_path(id: basket_item.id), method: :delete, data: { confirm: "Are you sure? " } %><br>
+    </li>
+  <% end %>
+</ul>
 
 <br>
 
 <p>
   <strong>Subtotal:</strong>
-  <%= @basket.subtotal %>
+  <%= number_to_currency(@basket.subtotal) %>
 </p>
 
 <p>
@@ -49,5 +29,7 @@
   <strong>Total:</strong>
   <%= @basket.total %>
 </p>
+
+<br>
 
 <%= link_to 'Continue Shopping', products_path %>
