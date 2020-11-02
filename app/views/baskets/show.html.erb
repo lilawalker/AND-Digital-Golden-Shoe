@@ -1,35 +1,28 @@
-<ul>
+<section class="section p-8">
   <% @basket.basket_items.each do |basket_item| %>
-    <li>
-      <%= image_tag(basket_item.unit.product.image, size: "48") %><br>
-      <%= basket_item.unit.product.name %><br>
-      <%= number_to_currency(basket_item.unit.product.price) %><br>
-      <strong>Serial Number: </strong><%= basket_item.unit.serial_number.upcase %><br>
-      <strong>Colour: </strong><%= basket_item.unit.product.colour %><br>
-      <strong>Size: </strong><%= basket_item.unit.size %><br>
-      <strong>Quantity: </strong><%= basket_item.quantity %><br>
-      <%= link_to 'Remove Item', remove_from_basket_path(id: basket_item.id), method: :delete, data: { confirm: "Are you sure? " } %><br>
-    </li>
+    <div class="xl:container xl:mx-auto flex flex-row rounded-md mb-8 shadow-xl">
+      <%= render(basket_item) %>
+    </div>
   <% end %>
-</ul>
+</section>
 
-<br>
+<div class="text-gray-700 m-8">
+  <p>
+    <strong>Subtotal:</strong>
+    <%= number_to_currency(@basket.subtotal) %>
+  </p>
 
-<p>
-  <strong>Subtotal:</strong>
-  <%= number_to_currency(@basket.subtotal) %>
-</p>
+  <p>
+    <strong>Discount:</strong>
+    <%= @basket.discount %>
+  </p>
 
-<p>
-  <strong>Discount:</strong>
-  <%= @basket.discount %>
-</p>
+  <p>
+    <strong>Total:</strong>
+    <%= @basket.total %>
+  </p>
+<div>
 
-<p>
-  <strong>Total:</strong>
-  <%= @basket.total %>
-</p>
-
-<br>
-
-<%= link_to 'Continue Shopping', products_path %>
+<div class="m-8 text-lg text-gray-400 underline hover:text-gray-700">
+  <%= link_to 'Continue Shopping', products_path %>
+</div>
