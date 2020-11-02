@@ -1,52 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="flex md:flex-none md:flex-row justify-between md:justify-start mt-8">
+  <select class="filter w-4/12 md:w-auto text-gray-700 rounded-full border-2 border-gray-400 md:mr-8" name="category">
+    <option selected value>category</option>
+    <%= options_for_select(@categories, selected: params[:category]) %>
+  </select>
 
-<%= link_to 'See Basket', basket_path %>
+  <select class="filter w-3/12 md:w-auto text-gray-700 rounded-full border-2 border-gray-400 md:mr-8" name="style">
+    <option selected value>style</option>
+    <%= options_for_select(@styles, selected: params[:style]) %>
+  </select>
 
-<h1>Products</h1>
+  <select class="filter w-3/12 md:w-auto text-gray-700 rounded-full border-2 border-gray-400 md:mr-8" name="colour">
+    <option selected value>colour</option>
+    <%= options_for_select(@colours, selected: params[:colour]) %>
+  </select>
+</div>
 
-<select class="filter" name="category">
-  <option selected value> -- select category -- </option>
-  <%= options_for_select(@categories, selected: params[:category]) %>
-</select>
-
-<select class="filter" name="style">
-  <option selected value> -- select style -- </option>
-  <%= options_for_select(@styles, selected: params[:style]) %>
-</select>
-
-<select class="filter" name="colour">
-  <option selected value> -- select colour -- </option>
-  <%= options_for_select(@colours, selected: params[:colour]) %>
-</select>
-
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Style</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Colour</th>
-      <th>Price</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.category %></td>
-        <td><%= product.style %></td>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.colour %></td>
-        <td><%= product.price %></td>
-        <td><%= image_tag(product.image, size: "48") %></td>
-        <td><%= link_to 'Show', product %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<section class="grid gap-6 grid-cols-2 lg:grid-cols-4">
+  <% @products.each do |product| %>
+      <%= render(product) %>
+  <% end %>
+</section>

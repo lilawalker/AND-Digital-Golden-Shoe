@@ -1,0 +1,15 @@
+<div class="xl:container xl:mx-auto">
+  <%= link_to product do %>
+    <%= image_tag(product.image, class: "object-contain") %>
+  <% end %>
+
+  <p class="text-xl text-gray-700">
+    <%= link_to product.name, product %>
+  </p>
+  <p class="text-sm text-gray-700 text-opacity-50"
+    ><%= "#{product.category.capitalize} #{product.style} #{product.colour}" %>
+  </p>
+  <p class="text-base text-gray-700 mb-8">
+    <%= number_to_currency(product.price) %>
+  </p>
+</div>
