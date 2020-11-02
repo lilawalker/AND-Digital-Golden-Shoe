@@ -1,6 +1,7 @@
-      <%= link_to product do %>
-        <%= image_tag(product.image, size: "200") %>
-      <% end %>
-      <p class="text-lg"><%= link_to product.name, product %></p>
-      <p class="text-xs"><%= "#{product.category.capitalize} #{product.style} #{product.colour}" %></p>
-      <p class="text-sm"><%= number_to_currency(product.price) %></p>
+<%= link_to product do %>
+  <%= image_tag(product.image, class: "object-contain") %>
+<% end %>
+
+<p class="text-xl text-gray-700"><%= link_to product.name, product %></p>
+<p class="text-sm text-gray-700 text-opacity-50"><%= "#{product.category.capitalize} #{product.style} #{product.colour}" %></p>
+<p class="text-base text-gray-700 mb-8"><%= number_to_currency(product.price) %></p>

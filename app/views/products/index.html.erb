@@ -1,23 +1,27 @@
 <br>
 
-<select class="filter bg-white rounded shadow m-1" name="category">
-  <option selected value> select category </option>
-  <%= options_for_select(@categories, selected: params[:category]) %>
-</select>
+<div class="flex-row">
+  <select class="filter text-gray-700 rounded-full border-2 border-gray-400 ml-8" name="category">
+    <option selected value> select category </option>
+    <%= options_for_select(@categories, selected: params[:category]) %>
+  </select>
 
-<select class="filter bg-white rounded shadow m-1" name="style">
-  <option selected value> select style </option>
-  <%= options_for_select(@styles, selected: params[:style]) %>
-</select>
+  <select class="filter text-gray-700 rounded-full border-2 border-gray-400 ml-6" name="style">
+    <option selected value> select style </option>
+    <%= options_for_select(@styles, selected: params[:style]) %>
+  </select>
 
-<select class="filter bg-white rounded shadow m-1" name="colour">
-  <option selected value> select colour </option>
-  <%= options_for_select(@colours, selected: params[:colour]) %>
-</select>
+  <select class="filter text-gray-700 rounded-full border-2 border-gray-400 ml-6" name="colour">
+    <option selected value> select colour </option>
+    <%= options_for_select(@colours, selected: params[:colour]) %>
+  </select>
+</div>
 
-<section class="section">
+<section class="section grid gap-6 grid-cols-2 lg:grid-cols-4 p-8">
   <% @products.each do |product| %>
-    <%= render(product) %>
+    <div class="xl:container xl:mx-auto">
+      <%= render(product) %>
+    </div>
   <% end %>
 </section>
 
