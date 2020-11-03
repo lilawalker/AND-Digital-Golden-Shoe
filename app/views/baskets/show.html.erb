@@ -12,14 +12,14 @@
 
   <p>
     <strong>Discount:</strong>
-    <%= @basket.discount %>
+    <%= number_to_currency(@basket.discount) %>
   </p>
 
   <p>
     <strong>Total:</strong>
-    <%= @basket.total %>
+    <%= number_to_currency(@basket.total) %>
   </p>
-<div>
+</div>
 
 <div class="text-3xl lg:text-lg my-16 text-gray-400 underline hover:text-gray-700">
   <%= link_to 'Continue Shopping', products_path %>
