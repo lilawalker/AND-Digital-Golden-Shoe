@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Basket, type: :model do
 
   subject(:basket) { FactoryBot.create(:basket) }
-  let (:unit) { FactoryBot.create(:unit) }
+  let(:unit) { FactoryBot.create(:unit) }
 
   it 'is not valid without a uuid' do
     basket.uuid = nil

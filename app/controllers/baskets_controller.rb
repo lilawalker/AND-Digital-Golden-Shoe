@@ -6,9 +6,9 @@ class BasketsController < ApplicationController
 
   private
 
-    def subtotal_price
-       subtotal = @basket.basket_items.sum { |item| item.subtotal_price }
-       @basket.update_column(:subtotal, subtotal)
-    end
+  def subtotal_price
+    subtotal = @basket.basket_items.sum { |item| item.subtotal_price }
+    @basket.update_column(:subtotal, subtotal)
+  end
 
 end

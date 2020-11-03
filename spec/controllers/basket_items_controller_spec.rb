@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe BasketItemsController, type: :controller do
 
-  let (:unit) { FactoryBot.create(:unit) }
-  let (:basket_item) { FactoryBot.create(:basket_item) }
+  let(:unit) { FactoryBot.create(:unit) }
+  let(:basket_item) { FactoryBot.create(:basket_item) }
 
   describe 'POST /' do
 

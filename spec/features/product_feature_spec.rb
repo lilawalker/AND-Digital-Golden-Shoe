@@ -20,41 +20,38 @@ RSpec.feature 'Product', type: :feature do
           price: Faker::Commerce.price(range: 60..129),
         )
 
-        3.times do |n|
-          Unit.create(
-            serial_number: SecureRandom.uuid,
-            size: 6 + n,
-            quantity: 0 + n,
-            product: product,
-          )
-        end
+      3.times do |n|
+        Unit.create(
+          serial_number: SecureRandom.uuid,
+          size: 6 + n,
+          quantity: 0 + n,
+          product: product,
+        )
       end
     end
-
-    scenario "displays the product name and image of corresponding product" do
-      visit "/products/#{Product.first.id}"
-      expect(page).to have_content "Mens classic trainers"
-      expect(page).to have_css 'img[src*="classic_black.jpeg"]'
-    end
-
-    scenario "updates the product based on colour selection" do
-      visit "/products/#{Product.first.id}"
-      click_link "white"
-      expect(page.current_path).to eq "/products/#{Product.first.id + 1}"
-      expect(page).to have_css 'img[src*="classic_white.jpeg"]'
-    end
-
-    scenario "displays 'Out of Stock' if the product and size are not in stock" do
-      visit "/products/#{Product.first.id + 2}?size=6"
-      expect(page).to have_content "Out of Stock"
-    end
-
-    scenario "displays 'In Stock' if the product and size are in stock" do
-      visit "/products/#{Product.first.id + 2}?size=8"
-      expect(page).to have_content "In stock"
-    end
-
   end
 
+  scenario "displays the product name and image of corresponding product" do
+    visit "/products/#{Product.first.id}"
+    expect(page).to have_content "Mens classic trainers"
+    expect(page).to have_css 'img[src*="classic_black.jpeg"]'
+  end
 
+  scenario "updates the product based on colour selection" do
+    visit "/products/#{Product.first.id}"
+    click_link "white"
+    expect(page.current_path).to eq "/products/#{Product.first.id + 1}"
+    expect(page).to have_css 'img[src*="classic_white.jpeg"]'
+  end
 
+  scenario "displays 'Out of Stock' if the product and size are not in stock" do
+    visit "/products/#{Product.first.id + 2}?size=6"
+    expect(page).to have_content "Out of Stock"
+  end
+
+  scenario "displays 'In Stock' if the product and size are in stock" do
+    visit "/products/#{Product.first.id + 2}?size=8"
+    expect(page).to have_content "In stock"
+  end
+
+end

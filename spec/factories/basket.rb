@@ -6,4 +6,3 @@ FactoryBot.define do
     total { 10 }
   end
 end
-
