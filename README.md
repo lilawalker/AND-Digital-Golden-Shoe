@@ -54,6 +54,7 @@ approximately 20 minutes going over it with you
 Ensure you have the following setup on your machine:
 - Bundler
 - PostgreSQL
+- Yarn
 
 `git clone` this repository and `cd` into the directory.
 
@@ -61,6 +62,7 @@ Install dependencies:
 
 ```
 $ bundle install
+$ yarn install
 ```
 
 Create, migrate and seed the database:
@@ -77,14 +79,13 @@ $ rails server
 
 Then navigate to `localhost:3000` in your browser
 
-
 ## Dependencies
 
 This project relies on the following Rails Gems:
 
 - Devise (for user authentication)
-
-
+- Material Icons
+- Tailwind CSS
 
 ## Running Tests
 
@@ -102,15 +103,60 @@ $ bundle exec rubocop
 
 ## Deployment
 
-TBA
+The app is deployed via Heroku here: [Golden Shoe](https://golden-shoe-shop.herokuapp.com/)
 
 ## Criteria for Building the Project
 
+#### Methodology
+
+The project is built with Rails, PostgreSQL, and Tailwind CSS.
+
+Phase 1 (implemented):
+
+I have prioritised the features that would be most impactful for conversion rate and increased revenue:
+
+- Responsive design, built for mobile-first
+- Home page with links to either men's or women's shoes
+- Page listing all available products
+- Filtering for products by category, style and colour
+- Page for full product details
+- Viewing a product's various different colours
+- Selecting the appropriate size
+- See whether product is in stock before purchase
+- Add item to basket only if in stock
+- View basket of selected items for purchase
+- View basket total
+- Remove item from basket
+
+Phase 2:
+
+- Product search and sort
+- View orders and delivery status
+- Sign up to newsletter for promotional deals
+- Add promo code to checkout for discount
+- Process online returns
+
+Phase 3:
+
+- Customer product reviews
+- Customer wishlist
+- Product recommendations based on current product
+- “As seen on you” feature, allowing customers to submit own photos of products
+- Social media share button
+- Rotating banners with promotions and sales
+- Abandoned cart notification
+- Chatbot
+- Improve Search Engine Optimisation
+
 #### Domain Model
 
-TBA
+Domain model for completed MVP:
+![Domain Model](public/images/phase1_DomainModel.png)
 
-#### User Stories
+Domain model for proposed features:
+![Domain Model](public/images/phase2_DomainModel.png)
+
+#### User Stories (Phase 1)
 
 ```
 As a user
@@ -146,6 +192,6 @@ So that I can amend my purchase
 I would like to remove an item from my basket
 
 As a user
-So that I make my final purchase
+So that I can confirm my final purchase
 I would like to see the subtotal of my basket
 ```
