@@ -26,7 +26,7 @@
     </div>
 
     <div class="mt-16 lg:mt-8 text-4xl lg:text-lg text-gray-700">
-      <select class="filter mr-8 rounded-full border-2 border-gray-400" name="size">
+      <select class="filter mr-8 rounded-sm border-2 border-gray-400" name="size">
         <option disabled selected value> select size </option>
         <%= options_for_select(@sizes, selected: @selected_size.size) %>
       </select>
