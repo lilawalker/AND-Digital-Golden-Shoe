@@ -13,7 +13,7 @@
   </div>
 
   <div>
-    <div class="mt-8 sm:mt-16">
+    <div class="mt-16 lg:mt-8 sm:mt-16">
       <p class="text-3xl lg:text-xl text-gray-700">
         <%= @product.name %>
       </p>
@@ -25,8 +25,8 @@
       </p>
     </div>
 
-    <div class="mt-8 mr-4 text-4xl lg:text-lg text-gray-700" >
-      <select class="filter rounded-full border-2 border-gray-400" name="size">
+    <div class="mt-16 lg:mt-8 text-4xl lg:text-lg text-gray-700">
+      <select class="filter mr-8 rounded-full border-2 border-gray-400" name="size">
         <option disabled selected value> select size </option>
         <%= options_for_select(@sizes, selected: @selected_size.size) %>
       </select>
@@ -38,7 +38,7 @@
       <% end %>
     </div>
 
-    <div class="mt-8 text-4xl lg:text-lg">
+    <div class="mt-16 lg:mt-8 text-4xl lg:text-lg">
       <% if @selected_size.quantity == 0 %>
         <%= button_to 'Add to basket', add_to_basket_path(unit_id: @selected_size),
           class: "bg-teal-400 hover:bg-teal-600 text-yellow-500 font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed",
@@ -52,7 +52,7 @@
       <% end %>
     </div>
 
-    <div class="mt-8">
+    <div class="mt-16 lg:mt-8">
       <p class="text-3xl lg:text-xl text-gray-700"><%= "Product Information:" %></p>
       <p class="text-2xl lg:text-lg text-gray-700 text-opacity-75 lg:max-w-sm"><%= @product.description %></p>
     </div>
@@ -60,6 +60,6 @@
   </div>
 </div>
 
-<div class="mt-8 mb-16 text-3xl lg:text-lg text-gray-400 underline hover:text-gray-700">
+<div class="mt-16 mb-16 text-3xl lg:text-lg text-gray-400 underline hover:text-gray-700">
   <%= link_to 'Back', products_path %>
 </div>
