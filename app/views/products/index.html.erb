@@ -1,22 +1,22 @@
-<div class="mt-12 lg:mt-8 flex">
-  <select class="filter text-4xl lg:text-lg text-gray-700 rounded-sm border-2 border-gray-400 mr-8 w-1/4" name="category">
+<div class="mt-12 lg:mt-8 grid grid-cols-3 lg:grid-cols-4 w-full">
+  <select class="filter text-4xl lg:text-lg text-gray-700 rounded-sm border-2 border-gray-400 mr-8" name="category">
     <option selected value>category</option>
     <%= options_for_select(@categories, selected: params[:category]) %>
   </select>
 
-  <select class="filter text-4xl lg:text-lg text-gray-700 rounded-sm border-2 border-gray-400 mr-8 w-1/4" name="style">
+  <select class="filter text-4xl lg:text-lg text-gray-700 rounded-sm border-2 border-gray-400 mr-8" name="style">
     <option selected value>style</option>
     <%= options_for_select(@styles, selected: params[:style]) %>
   </select>
 
-  <select class="filter text-4xl lg:text-lg text-gray-700 rounded-sm border-2 border-gray-400 mr-8 w-1/4" name="colour">
+  <select class="filter text-4xl lg:text-lg text-gray-700 rounded-sm border-2 border-gray-400 mr-8" name="colour">
     <option selected value>colour</option>
     <%= options_for_select(@colours, selected: params[:colour]) %>
   </select>
 
-  <div class="text-4xl lg:text-lg text-gray-700 w-1/4">
-    <%= link_to 'Clear Filters', '/products' %>
-  </div>
+  <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded text-3xl lg:text-lg mr-8 mt-8 lg:mt-0">
+    <%= link_to 'clear filters', '/products' %>
+  </button>
 </div>
 
 <section class="grid gap-6 grid-cols-2 lg:grid-cols-4">
