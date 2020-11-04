@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Golden Shoe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,21 +14,22 @@
 
   <body>
     <div class="sticky top-0 bg-teal-500 w-full pb-0">
-      <nav class="flex justify-between text-yellow-500 align-middle">
-        <h1 class="text-6xl lg:text-4xl hover:text-yellow-600 active:text-yellow-600 font-extrabold lg:my-1 pl-4 lg:pl-10">
-          <%= link_to 'Golden Shoe', root_path %>
-        </h1>
-        <div class="flex flex-row justify-around">
-          <%= link_to "Mens", "/products/?category=mens", class: "text-xl md:text-2xl hover:text-yellow-600 active:text-yellow-600 my-auto mr-4" %>
-          <%= link_to "Womens", "/products/?category=womens", class: "text-xl md:text-2xl hover:text-yellow-600 active:text-yellow-600 my-auto mr-4" %>
-          <h1 class="material-icons text-6xl lg:text-4xl hover:text-yellow-600 active:text-yellow-600 mt-4 mr-4" >
+      <nav class="flex justify-between">
+        <div class="">
+          <h1 class="text-3xl text-yellow-500 hover:text-yellow-600 active:text-yellow-600 font-extrabold md:my-1 pl-2 md:pl-6">
+            <%= link_to 'Golden Shoe', root_path %>
+          </h1>
+        </div>
+        <div class="pt-3 md:pt-4 pr-2 md:pr-6">
+          <%= link_to "Mens", "/products/?category=mens", class: "text-gray-700 text-base hover:text-yellow-600 active:text-yellow-600 mr-2 md:mr-12" %>
+          <%= link_to "Womens", "/products/?category=womens", class: "text-gray-700 text-base hover:text-yellow-600 active:text-yellow-600 mr-2 md:mr-12" %>
+          <h1 class="text-yellow-500 material-icons text-xl hover:text-yellow-600 active:text-yellow-600" >
             <%= link_to 'shopping_cart', basket_path %>
           </h1>
         </div>
       </nav>
-
       <div class="bg-teal-200 py-1">
-        <h2 class="text-xl lg:text-base text-gray-700 text-center">
+        <h2 class="text-sm text-gray-700 text-center">
           Free shipping and returns on all orders
         </h2>
       </div>
@@ -36,10 +39,10 @@
       <%= yield %>
     </div>
 
-    <footer class="bg-teal-500 text-gray-700 pl-4 lg:pl-10 py-2 lg:py-4 flex flex-row w-full text-2xl lg:text-xl">
-      <div class="mr-4">Delivery & Returns</div>
-      <div class="mr-4">My Account</div>
-      <div class="mr-4">Contact</div>
+    <footer class="bg-teal-500 text-gray-700 pl-4 py-2 flex flex-row w-full text-base">
+      <div class="mr-6">Delivery & Returns</div>
+      <div class="mr-6">My Account</div>
+      <div class="mr-6">Contact</div>
     </footer>
   </body>
 </html>

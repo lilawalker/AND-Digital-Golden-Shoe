@@ -4,7 +4,7 @@
   <% end %>
 </section>
 
-<div class="text-gray-700 text-3xl lg:text-xl mt-16">
+<div class="text-gray-700 text-xl mt-16">
   <p>
     <strong>Subtotal:</strong>
     <%= number_to_currency(@basket.subtotal) %>
@@ -21,6 +21,6 @@
   </p>
 </div>
 
-<div class="text-3xl lg:text-lg my-16 text-gray-400 underline hover:text-gray-700">
+<div class="text-lg my-16 text-gray-400 underline hover:text-gray-700">
   <%= link_to 'Continue Shopping', products_path %>
 </div>
