@@ -27,6 +27,7 @@ Top 3 reasons for contacting customer services;
 - Items showing as in stock, but actually being out of stock (and the customer is still
 able to ‘check out’ the item even though it is out of stock)
 - Queries around delivery dates and time
+
 Top reasons for returning items;
 - Incorrect shoe size (38%)
 - Didn’t like the shoe style (35%)
@@ -53,8 +54,8 @@ approximately 20 minutes going over it with you
 
 Ensure you have the following setup on your machine:
 - Bundler
-- PostgreSQL
 - Yarn
+- PostgreSQL
 
 `git clone` this repository and `cd` into the directory.
 
@@ -101,19 +102,31 @@ $ bundle exec rspec
 $ bundle exec rubocop
 ```
 
+To see test coverage:
+```
+$ open coverage/index.html
+```
+
+Current test coverage status is as follows:
+```
+38 examples, 0 failures
+
+COVERAGE:  97.70% -- 85/87 lines in 11 files
+```
+
 ## Deployment
 
 The app is deployed via Heroku here: [Golden Shoe](https://golden-shoe-shop.herokuapp.com/)
 
 ## Criteria for Building the Project
 
-#### Methodology
+### Methodology
 
-The project is built with Rails, PostgreSQL, and Tailwind CSS.
+The project is built with Rails 6, PostgreSQL, and Tailwind CSS.
 
-Phase 1 (implemented):
+<b>Phase 1 (implemented):</b>
 
-I have prioritised the features that would be most impactful for conversion rate and increased revenue:
+I have prioritised the features that would be most impactful for increased conversion rate and revenue:
 
 - Responsive design, built for mobile-first
 - Home page with links to either men's or women's shoes
@@ -128,7 +141,7 @@ I have prioritised the features that would be most impactful for conversion rate
 - View basket total
 - Remove item from basket
 
-Phase 2:
+<b>Phase 2:</b>
 
 - Product search and sort
 - View orders and delivery status
@@ -136,7 +149,7 @@ Phase 2:
 - Add promo code to checkout for discount
 - Process online returns
 
-Phase 3:
+<b>Phase 3:</b>
 
 - Customer product reviews
 - Customer wishlist
@@ -145,10 +158,10 @@ Phase 3:
 - Social media share button
 - Rotating banners with promotions and sales
 - Abandoned cart notification
-- Chatbot
+- Chatbot for customer services
 - Improve Search Engine Optimisation
 
-#### Domain Model
+### Domain Model
 
 Domain model for completed MVP:
 ![Domain Model](public/images/phase1_DomainModel.png)
@@ -156,7 +169,7 @@ Domain model for completed MVP:
 Domain model for proposed features:
 ![Domain Model](public/images/phase2_DomainModel.png)
 
-#### User Stories (Phase 1)
+### User Stories (Phase 1)
 
 ```
 As a user
