@@ -111,7 +111,7 @@ Current test coverage status is as follows:
 ```
 38 examples, 0 failures
 
-COVERAGE:  97.70% -- 85/87 lines in 11 files
+COVERAGE: 100.00% -- 83/83 lines in 11 files
 ```
 
 ## Deployment

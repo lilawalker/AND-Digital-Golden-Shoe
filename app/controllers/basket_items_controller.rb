@@ -1,10 +1,6 @@
 class BasketItemsController < ApplicationController
   before_action :set_basket_item, only: [:destroy]
 
-  def new
-    @basket_item = BasketItem.new
-  end
-
   def create
     @unit = Unit.find(params[:unit_id])
     @basket_item = @basket.add_unit(@unit)
@@ -32,10 +28,6 @@ class BasketItemsController < ApplicationController
 
   def set_basket_item
     @basket_item = BasketItem.find(params[:id])
-  end
-
-  def basket_item_params
-    params.require(:basket_item).permit(:unit_id)
   end
 
 end
