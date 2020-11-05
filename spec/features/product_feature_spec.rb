@@ -44,9 +44,9 @@ RSpec.feature 'Product', type: :feature do
     expect(page).to have_css 'img[src*="classic_white.jpeg"]'
   end
 
-  scenario "displays 'Out of Stock' if the product and size are not in stock" do
+  scenario "displays 'Out of stock' if the product and size are not in stock" do
     visit "/products/#{Product.first.id + 2}?size=6"
-    expect(page).to have_content "Out of Stock"
+    expect(page).to have_content "Out of stock"
   end
 
   scenario "displays 'In Stock' if the product and size are in stock" do

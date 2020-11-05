@@ -1,6 +1,6 @@
 <div>
   <%= link_to product do %>
-    <%= image_tag(product.image, class: "object-contain") %>
+    <%= image_tag(product.image, class: "object-contain", alt: "#{product.name}") %>
   <% end %>
 
   <p class="text-xl text-gray-700">
