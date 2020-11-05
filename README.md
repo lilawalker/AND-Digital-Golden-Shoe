@@ -50,6 +50,8 @@ As an AND Digital Associate, we want you to summarise;
 will need to bring this with you to your interview, as the Client will spend
 approximately 20 minutes going over it with you
 
+[[↑] Back to top](#golden-shoe)
+
 ## Getting Started
 
 Ensure you have the following setup on your machine:
@@ -80,13 +82,17 @@ $ rails server
 
 Then navigate to `localhost:3000` in your browser
 
+[[↑] Back to top](#golden-shoe)
+
 ## Dependencies
 
-This project relies on the following Rails Gems:
+This project relies on the following dependencies:
 
 - Devise (for user authentication)
 - Material Icons
 - Tailwind CSS
+
+[[↑] Back to top](#golden-shoe)
 
 ## Running Tests
 
@@ -114,9 +120,13 @@ Current test coverage status is as follows:
 COVERAGE: 100.00% -- 83/83 lines in 11 files
 ```
 
+[[↑] Back to top](#golden-shoe)
+
 ## Deployment
 
 The app is deployed via Heroku here: [Golden Shoe](https://golden-shoe-shop.herokuapp.com/)
+
+[[↑] Back to top](#golden-shoe)
 
 ## Criteria for Building the Project
 
@@ -208,3 +218,5 @@ As a user
 So that I can confirm my final purchase
 I would like to see the subtotal of my basket
 ```
+
+[[↑] Back to top](#golden-shoe)
