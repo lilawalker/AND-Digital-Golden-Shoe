@@ -6,6 +6,13 @@ RSpec.describe OrdersController, type: :controller do
   let(:user) { User.first }
   let(:basket_item) { FactoryBot.create(:basket_item) }
 
+  describe 'GET /' do
+    it 'responds with 200' do
+      get :index
+      expect(response).to have_http_status(200)
+    end
+  end
+
   describe 'POST /' do
     context 'success' do
       it 'responds with 302' do
