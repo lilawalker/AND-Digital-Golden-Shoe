@@ -1,0 +1,10 @@
+<div class="mb-8">
+  <% @orders.each do |order| %>
+    <%= render(order) %>
+  <% end %>
+
+  <%= link_to 'Logout', destroy_user_session_path,
+    method: :delete,
+    class: "my-8 bg-teal-400 hover:bg-teal-600 text-yellow-500 font-bold py-2 px-4 rounded text-lg"
+  %>
+</div>

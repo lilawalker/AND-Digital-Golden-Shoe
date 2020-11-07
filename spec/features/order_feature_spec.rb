@@ -41,5 +41,16 @@ RSpec.feature 'Order', type: :feature do
       page.find(:css, 'a[href="/basket"]').click
       expect(page).to have_content "Your basket is empty"
     end
+
+    scenario "can view previous orders" do
+      click_link "My Account"
+      expect(page).to have_content "Order number: #{user.orders.first.id}"
+    end
+
+    scenario "can see full order line detail" do
+      click_link "My Account"
+      page.find(:css, "a[href='/order/#{user.orders.first.id}']").click
+      expect(page).to have_content "#{user.orders.last.order_items.last.unit.product.name}"
+    end
   end
 end
