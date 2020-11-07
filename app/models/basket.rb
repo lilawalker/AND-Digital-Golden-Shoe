@@ -13,4 +13,8 @@ class Basket < ApplicationRecord
 
     current_item
   end
+
+  def validate_stock
+    basket_items.map(&:validate_stock).uniq == [true]
+  end
 end
