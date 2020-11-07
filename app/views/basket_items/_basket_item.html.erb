@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 rounded-md mb-8 shadow-xl px-4 justify-around">
   <div class="mr-6">
     <%= link_to product_path(id: basket_item.unit.product.id) do %>
-      <%= image_tag(basket_item.unit.product.image, class: "object-contain", alt: "#{basket_item.unit.product.name}") %><br>
+      <%= image_tag(basket_item.unit.product.image, class: "object-contain", alt: "#{basket_item.unit.product.name}") %>
     <% end %>
   </div>
 
