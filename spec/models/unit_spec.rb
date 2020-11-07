@@ -24,4 +24,8 @@ RSpec.describe Unit, type: :model do
     expect(unit).to_not be_valid
   end
 
+  it '#decrement_quantity' do
+    expect { unit.decrement_quantity }.to change { unit.quantity }.from(10).to(9)
+  end
+
 end
