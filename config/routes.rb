@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   post '/checkout', to: 'orders#create', as: 'checkout'
   get '/order/:id', to: 'orders#show', as: 'order'
 
+  get '/account/orders', to: 'orders#index', as: 'user_orders'
+
   root to: 'home#index'
 end
