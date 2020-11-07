@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     session[:basket_uuid] = @basket.uuid
   end
 
+  def after_sign_out_path_for(_)
+    root_path
+  end
+
 end
