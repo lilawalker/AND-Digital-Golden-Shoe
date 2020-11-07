@@ -23,4 +23,15 @@ RSpec.describe BasketItem, type: :model do
     expect(basket_item.subtotal_price).to eq 79
   end
 
+  context "#validate_stock" do
+    it "returns true if the item is in stock" do
+      expect(basket_item.validate_stock).to eq true
+    end
+
+    it "returns false if the item is not in stock" do
+      basket_item.unit.quantity = 0
+      expect(basket_item.validate_stock).to eq false
+    end
+  end
+
 end
