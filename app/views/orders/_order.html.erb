@@ -1,0 +1,32 @@
+<%= link_to order_path(id: order.id) do %>
+  <div class="grid grid-cols-1 md:grid-cols-2 text-sm rounded-md my-8 shadow-xl px-4">
+    <p>
+      <strong>Order number:</strong>
+      <%= order.id %>
+    </p>
+    <p>
+      <strong>Status:</strong>
+      <%= order.status %>
+    </p>
+    <p>
+      <strong>Order date:</strong>
+      <%= order.created_at.strftime("%d/%m/%Y") %>
+    </p>
+      <p>
+      <strong>Shipped date:</strong>
+      <%= order.shipped_date.strftime("%d/%m/%Y") %>
+    </p>
+      <p>
+      <strong>Delivered date:</strong>
+      <%= order.delivered_date.strftime("%d/%m/%Y") %>
+    </p>
+      <p>
+      <strong>Subtotal:</strong>
+      <%= number_to_currency(order.subtotal) %>
+    </p>
+      <p>
+      <strong>Total:</strong>
+      <%= number_to_currency(order.total) %>
+    </p>
+  </div>
+<% end %>

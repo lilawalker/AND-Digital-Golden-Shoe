@@ -1,25 +1,40 @@
-<section class="section pt-8">
-  <% @basket.basket_items.each do |basket_item| %>
-    <%= render(basket_item) %>
+<% if @basket.basket_items.empty? %>
+  <section class="section pt-8 text-xl">
+    Your basket is empty
+  </section>
+<% else %>
+  <section class="section pt-8">
+    <% @basket.basket_items.each do |basket_item| %>
+      <%= render(basket_item) %>
+    <% end %>
+  </section>
+
+  <div class="text-gray-700 text-xl my-16">
+    <p>
+      <strong>Subtotal:</strong>
+      <%= number_to_currency(@basket.subtotal) %>
+    </p>
+    <p>
+      <strong>Discount:</strong>
+      <%= number_to_currency(@basket.discount) %>
+    </p>
+    <p>
+      <strong>Total:</strong>
+      <%= number_to_currency(@basket.total) %>
+    </p>
+  </div>
+
+  <% if current_user %>
+    <%= button_to 'Checkout', checkout_path,
+      method: :post,
+      class: "mt-8 bg-teal-400 hover:bg-teal-600 text-yellow-500 font-bold py-2 px-4 rounded text-lg"
+    %>
+  <% else %>
+    <%= link_to 'Checkout', new_user_session_path,
+      class: "mt-8 bg-teal-400 hover:bg-teal-600 text-yellow-500 font-bold py-2 px-4 rounded text-lg"
+    %>
   <% end %>
-</section>
-
-<div class="text-gray-700 text-xl mt-16">
-  <p>
-    <strong>Subtotal:</strong>
-    <%= number_to_currency(@basket.subtotal) %>
-  </p>
-
-  <p>
-    <strong>Discount:</strong>
-    <%= number_to_currency(@basket.discount) %>
-  </p>
-
-  <p>
-    <strong>Total:</strong>
-    <%= number_to_currency(@basket.total) %>
-  </p>
-</div>
+<% end %>
 
 <div class="text-lg my-16 text-gray-400 underline hover:text-gray-700">
   <%= link_to 'Continue Shopping', products_path %>

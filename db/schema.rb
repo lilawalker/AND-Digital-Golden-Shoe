@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_134955) do
+ActiveRecord::Schema.define(version: 2020_11_05_224916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,28 @@ ActiveRecord::Schema.define(version: 2020_10_31_134955) do
     t.integer "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "unit_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["unit_id"], name: "index_order_items_on_unit_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.float "subtotal"
+    t.float "total"
+    t.string "status"
+    t.datetime "shipped_date"
+    t.datetime "delivered_date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -74,5 +96,8 @@ ActiveRecord::Schema.define(version: 2020_10_31_134955) do
 
   add_foreign_key "basket_items", "baskets"
   add_foreign_key "basket_items", "units"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "units"
+  add_foreign_key "orders", "users"
   add_foreign_key "units", "products"
 end

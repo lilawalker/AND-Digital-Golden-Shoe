@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   post '/baskets/add', to: 'basket_items#create', as: 'add_to_basket'
   delete '/baskets/remove', to: 'basket_items#destroy', as: 'remove_from_basket'
 
+  post '/checkout', to: 'orders#create', as: 'checkout'
+  get '/order/:id', to: 'orders#show', as: 'order'
+
+  get '/account/orders', to: 'orders#index', as: 'user_orders'
+
   root to: 'home#index'
 end
