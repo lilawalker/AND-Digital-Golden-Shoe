@@ -28,7 +28,7 @@
     <div class="mt-8 text-lg text-gray-700">
       <select class="filter mr-8 rounded-sm border-2 border-gray-400" name="size">
         <option disabled selected value> select size </option>
-        <%= options_for_select(@sizes, selected: @selected_size.size) %>
+        <%= options_for_select(@sizes.sort, selected: @selected_size.size) %>
       </select>
       <%= "#{@selected_size.quantity == 0 ? 'Out of stock' : 'In stock' }" %>
     </div>
