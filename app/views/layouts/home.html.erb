@@ -36,6 +36,12 @@
     </div>
 
     <div>
+      <% if notice %>
+        <p class="bg-green-200 border-green-700 text-green-700 rounded-md mt-4 p-2 text-lg"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="bg-red-200 border-red-700 text-red-700 rounded-md mt-4 p-2 text-lg"><%= alert %></p>
+      <% end %>
       <%= yield %>
     </div>
 

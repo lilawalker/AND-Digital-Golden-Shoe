@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def after_sign_in_path_for(_)
+    user_orders_path
+  end
+
 end
