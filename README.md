@@ -115,9 +115,9 @@ $ open coverage/index.html
 
 Current test coverage status is as follows:
 ```
-38 examples, 0 failures
+60 examples, 0 failures
 
-COVERAGE: 100.00% -- 83/83 lines in 11 files
+COVERAGE:  99.21% -- 125/126 lines in 14 files
 ```
 
 [[↑] Back to top](#golden-shoe)
@@ -132,9 +132,9 @@ The app is deployed via Heroku here: [Golden Shoe](https://golden-shoe-shop.hero
 
 ### Methodology
 
-The project is built with Rails 6, PostgreSQL, and Tailwind CSS.
+This prototype is built with Rails 6, PostgreSQL, and Tailwind CSS.
 
-<b>Phase 1 (implemented):</b>
+<b>Implemented Features</b>
 
 I have prioritised the features that would be most impactful for increased conversion rate and revenue:
 
@@ -150,17 +150,15 @@ I have prioritised the features that would be most impactful for increased conve
 - View basket of selected items for purchase
 - View basket total
 - Remove item from basket
+- Checkout
+- View orders and delivery status
 
-<b>Phase 2:</b>
+<b>Next Steps</b>
 
 - Product search and sort
-- View orders and delivery status
 - Sign up to newsletter for promotional deals
 - Add promo code to checkout for discount
 - Process online returns
-
-<b>Phase 3:</b>
-
 - Customer product reviews
 - Customer wishlist
 - Product recommendations based on current product
@@ -174,12 +172,10 @@ I have prioritised the features that would be most impactful for increased conve
 ### Domain Model
 
 Domain model for completed MVP:
-![Domain Model](public/images/phase1_DomainModel.png)
 
-Domain model for proposed features:
-![Domain Model](public/images/phase2_DomainModel.png)
+![Domain Model](public/images/domain_model.png)
 
-### User Stories (Phase 1)
+### Implemented User Stories
 
 ```
 As a user
@@ -207,7 +203,7 @@ So that I can only purchase an item that is in stock
 I would like to see whether the selected item is in stock
 
 As a user
-So that I can add purchase an item
+So that I can purchase an item
 I would like to add an item to my basket
 
 As a user
@@ -216,7 +212,19 @@ I would like to remove an item from my basket
 
 As a user
 So that I can confirm my final purchase
-I would like to see the subtotal of my basket
+I would like to see the subtotal of my basket and an option to checkout
+
+As a user
+So that I can ensure my checkout is secure
+I would like to sign up / sign in to my account before checkout
+
+As a user
+So that I can see my previous orders
+I would like to see a list of my previous orders in the account section
+
+As a user
+So that I can track my order
+I would like to see the expected shipped and delivered dates for my order
 ```
 
 [[↑] Back to top](#golden-shoe)
